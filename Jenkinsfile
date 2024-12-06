@@ -30,8 +30,8 @@ pipeline {
         stage('Deploy Docker Image to DockerHub') {
             steps {
                 script {
-                withCredentials([string(credentialsId: 'Vasu12345', variable: 'Vasu12345')]) {
-                    bat 'docker login -u va1234567 -p %Vasu12345%'
+                withCredentials([string(credentialsId: '%Credential_ID%', variable: '%Variable_Name%')]) {
+                    bat 'docker login -u %Username% -p %Password%'
             }
             bat 'docker push va1234567/nodeapp:latest'
         }
